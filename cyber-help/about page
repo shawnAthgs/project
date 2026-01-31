@@ -1,0 +1,14 @@
+about.html
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="UTF-8">
+  <title>About CyberHelp</title>
+</head>
+<body>
+  <h1>About This Project</h1>
+  <p>This page teaches people how to recognize and avoid online scams.</p>
+
+  <p><a href="index.html">Back to Home</a></p>
+</body>
+</html>
