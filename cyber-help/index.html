@@ -12,21 +12,28 @@
     color: #222;
   }
 
-  header {
+  /* Header box */
+  .header-box {
     background: white;
+    margin: 20px auto;
+    width: 85%;
+    max-width: 900px;
     padding: 20px;
+    border-radius: 12px;
     text-align: center;
-    border-bottom: 4px solid #6a5acd;
+    box-shadow: 0 8px 20px rgba(0,0,0,0.15);
   }
 
-  nav {
-    text-align: center;
-    margin: 15px 0;
+  .header-box h1 {
+    margin: 0 0 15px 0;
+    border-bottom: 3px solid #6a5acd;
+    padding-bottom: 10px;
   }
 
-  nav a {
+  /* Navigation links inside the header box */
+  .header-box a {
     display: inline-block;
-    margin: 0 10px;
+    margin: 10px;
     text-decoration: none;
     color: white;
     background-color: #6a5acd;
@@ -35,7 +42,7 @@
     font-weight: bold;
   }
 
-  nav a:hover {
+  .header-box a:hover {
     background-color: #5a4abc;
   }
 
@@ -93,16 +100,13 @@
 </head>
 <body>
 
-<header>
+<!-- Header box with links -->
+<div class="header-box">
   <h1>Welcome to CyberHelp</h1>
-</header>
-
-<!-- Navigation -->
-<nav>
   <a href="index.html">Home</a>
   <a href="about.html">About</a>
   <a href="Form.html">Contact Form</a>
-</nav>
+</div>
 
 <!-- Scam Sections -->
 <div class="section">
@@ -175,3 +179,4 @@ I feel such a deep connection already."
 
 </body>
 </html>
+
