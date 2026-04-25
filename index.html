@@ -36,43 +36,37 @@
     background-color: #5a4abc;
   }
 
-  /* UPDATED: now used everywhere */
-  .scam-card {
-    margin: 30px auto;
-    width: 80%;
-    max-width: 600px;
-  }
-
-  .textbox {
-    background: white;
-    padding: 15px;
-    border-radius: 10px;
-    box-shadow: 0 4px 12px rgba(0,0,0,0.2);
-  }
-
   h2 {
     text-align: center;
     color: white;
   }
 
-  /* ===== SCAM CARD STYLE ===== */
-  .scam-card > .textbox,
-  .scam-card > img,
-  .scam-card > textarea,
-  .scam-card > ol,
-  .scam-card > ul {
+  /* ===== SCAM CARD ===== */
+  .scam-card {
+    background: white;
+    border-radius: 16px;
+    padding: 20px;
+    margin: 30px auto;
+    width: 80%;
+    max-width: 650px;
+    box-shadow: 0 10px 25px rgba(0,0,0,0.2);
     transition: transform 0.35s ease, box-shadow 0.35s ease;
+    overflow: hidden;
   }
 
-  .scam-card:hover .textbox {
-    transform: scale(1.02);
+  .scam-card:hover {
+    transform: scale(1.03) translateY(-6px);
+    box-shadow: 0 18px 45px rgba(0,0,0,0.35);
   }
 
+  /* ===== IMAGE SIZE FIX ===== */
   .scam-card img {
     width: 100%;
+    height: 230px;
+    object-fit: cover;
     border-radius: 12px;
-    display: block;
     margin: 10px 0;
+    display: block;
     transition: transform 0.35s ease;
   }
 
@@ -80,6 +74,18 @@
     transform: scale(1.05);
   }
 
+  .textbox {
+    background: #f9f9f9;
+    padding: 15px;
+    border-radius: 10px;
+  }
+
+  textarea {
+    width: 100%;
+    border-radius: 8px;
+    padding: 10px;
+    border: 1px solid #ccc;
+  }
 </style>
 </head>
 
@@ -88,7 +94,6 @@
 <!-- HEADER -->
 <div class="header-box">
   <h1>Welcome to CyberHelp</h1>
-
   <a href="index.html">Home</a>
   <a href="about.html">About</a>
   <a href="form.html">Contact Form</a>
@@ -97,7 +102,6 @@
 <!-- PHISHING -->
 <div class="scam-card">
   <h2>Phishing Scam</h2>
-
   <img src="phishing_smallslider-2019.jpg">
 
   <div class="textbox">
@@ -108,61 +112,50 @@ We detected suspicious activity on your bank account.
 Click the link and enter your account number and password
 to verify your account or it will be suspended.
     </textarea>
-
-    <h3>How to spot phishing:</h3>
-    <ol>
-      <li>Check grammar and spelling.</li>
-      <li>Check the sender’s email address.</li>
-      <li>Watch for urgent threats or pressure.</li>
-    </ol>
   </div>
 </div>
 
 <!-- FAKE CHECK -->
 <div class="scam-card">
   <h2>Fake Check Scam</h2>
-
   <img src="elements_of_a_fake_check_-_bbb.jpg">
 
   <div class="textbox">
-    <p>1. Feel the edges – fake checks may have rough or perforated edges.</p>
-    <p>2. Verify the bank address and check number.</p>
-    <p>3. Look for spelling mistakes and verify the sender.</p>
+    <p>1. Feel the edges – fake checks may have rough edges.</p>
+    <p>2. Verify bank details carefully.</p>
+    <p>3. Watch for spelling mistakes.</p>
   </div>
 </div>
 
 <!-- EMERGENCY -->
 <div class="scam-card">
   <h2>Emergency Scam</h2>
-
   <img src="family_scams_image-jpeg8b260afdc8234e03abb2ccf4d489bdfd.jpeg">
 
   <div class="textbox">
-    <p>A scammer pretends to be a stranded friend or family member and urgently asks for money.</p>
-    <ol>
-      <li>Details are vague or don’t match reality.</li>
-      <li>The message comes from an unfamiliar address.</li>
-      <li>They pressure you to act immediately.</li>
-    </ol>
+    <p>Scammer pretends to be a family member in danger.</p>
+    <ul>
+      <li>Urgent money request</li>
+      <li>Vague details</li>
+      <li>Unknown sender</li>
+    </ul>
   </div>
 </div>
 
 <!-- ROMANCE -->
 <div class="scam-card">
   <h2>Romance Scam</h2>
-
   <img src="Romance-Scam-icon.jpg">
 
   <div class="textbox">
     <textarea rows="6" readonly>
-"I’ve been searching for someone like you for so long.
-I feel such a deep connection already."
+"I feel such a deep connection already."
     </textarea>
 
     <ul>
-      <li>Heavy flattery to build quick trust.</li>
-      <li>Fast, intense declarations of love.</li>
-      <li>Stories of hardship to gain sympathy.</li>
+      <li>Fast emotional attachment</li>
+      <li>Love bombing</li>
+      <li>Fake personal stories</li>
     </ul>
   </div>
 </div>
@@ -170,64 +163,60 @@ I feel such a deep connection already."
 <!-- RANSOMWARE -->
 <div class="scam-card">
   <h2>Ransomware Scam</h2>
-
   <img src="Why-You-Need-to-Be-Concerned-About-Both-Phishing-and-Ransomware_400.jpg">
 
   <div class="textbox">
-    <p>Your files are “encrypted” and the attacker demands Bitcoin payment.</p>
+    <p>Files locked and ransom demanded.</p>
     <ul>
-      <li>Poor spelling and grammar.</li>
-      <li>Cryptocurrency demands.</li>
-      <li>Threats of permanent data loss.</li>
+      <li>Bitcoin payment demand</li>
+      <li>Threats to delete files</li>
+      <li>Fake encryption message</li>
     </ul>
   </div>
 </div>
 
 <!-- SOCIAL MEDIA -->
 <div class="scam-card">
-  <h2>Social Media Account Hacking Scam</h2>
-
+  <h2>Social Media Scam</h2>
   <img src="Social-Media-Scams.png">
 
   <div class="textbox">
-    <p>Scammers target Snapchat, Instagram, and TikTok by stealing login info.</p>
-    <ol>
-      <li>Fake “Is this you?” links.</li>
-      <li>Fake login pages.</li>
-      <li>Account deletion threats.</li>
-    </ol>
+    <p>Hackers steal social media accounts.</p>
+    <ul>
+      <li>Fake login pages</li>
+      <li>“Is this you?” links</li>
+      <li>Password theft</li>
+    </ul>
   </div>
 </div>
 
 <!-- GAMING -->
 <div class="scam-card">
-  <h2>Gaming Scam (Robux, Skins, Free Items)</h2>
-
+  <h2>Gaming Scam</h2>
   <img src="images.jpeg">
 
   <div class="textbox">
-    <p>Scammers target Roblox, Fortnite, and Discord users.</p>
-    <ol>
-      <li>Fake free Robux/V-Bucks.</li>
-      <li>Fake trading bots.</li>
-      <li>Fake verification sites.</li>
-    </ol>
+    <p>Fake free items in games.</p>
+    <ul>
+      <li>Fake Robux/V-Bucks</li>
+      <li>Trading scams</li>
+      <li>Fake verification sites</li>
+    </ul>
   </div>
 </div>
 
 <!-- VERIFICATION -->
 <div class="scam-card">
   <h2>Verification Code Scam</h2>
-
   <img src="working test.jpeg">
 
   <div class="textbox">
-    <p>Scammers steal login codes to hijack accounts.</p>
-    <ol>
-      <li>“I sent you a code by mistake.”</li>
-      <li>Fake friend accounts.</li>
-      <li>Account takeover attempts.</li>
-    </ol>
+    <p>Scammers steal login codes.</p>
+    <ul>
+      <li>“Send me the code” trick</li>
+      <li>Fake friend accounts</li>
+      <li>Account takeover</li>
+    </ul>
   </div>
 </div>
 
