@@ -1,0 +1,241 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>CyberHelp - Scam Game</title>
+
+<style>
+  body {
+    margin: 0;
+    font-family: Arial, sans-serif;
+    background: linear-gradient(135deg, mediumpurple, rebeccapurple);
+    text-align: center;
+    color: white;
+  }
+
+  /* ===== NAV BAR (MATCHES YOUR SITE) ===== */
+  .header-box {
+    background-color: #6a5acd;
+    padding: 15px;
+    text-align: center;
+  }
+
+  .header-box h1 {
+    color: white;
+    margin: 0;
+  }
+
+  .header-box a {
+    color: white;
+    margin: 0 10px;
+    text-decoration: none;
+    padding: 8px 12px;
+    border-radius: 6px;
+  }
+
+  .header-box a:hover {
+    background-color: #5a4abc;
+  }
+
+  /* ===== GAME CONTAINER ===== */
+  .container {
+    width: 90%;
+    max-width: 700px;
+    margin: 50px auto;
+    background: white;
+    color: #222;
+    padding: 25px;
+    border-radius: 16px;
+    box-shadow: 0 10px 25px rgba(0,0,0,0.3);
+  }
+
+  h1 {
+    margin-bottom: 10px;
+  }
+
+  .question {
+    font-size: 20px;
+    margin: 20px 0;
+  }
+
+  .btn {
+    display: block;
+    width: 100%;
+    padding: 12px;
+    margin: 10px 0;
+    border: none;
+    border-radius: 10px;
+    background: #6a5acd;
+    color: white;
+    font-size: 16px;
+    cursor: pointer;
+    transition: 0.2s;
+  }
+
+  .btn:hover {
+    background: #5848b5;
+    transform: scale(1.02);
+  }
+
+  .score {
+    margin-top: 10px;
+  }
+
+  .feedback {
+    margin-top: 15px;
+    padding: 12px;
+    border-radius: 10px;
+    display: none;
+  }
+
+  .correct {
+    background: #d4f8d4;
+    color: #1b5e20;
+  }
+
+  .wrong {
+    background: #ffd6d6;
+    color: #b71c1c;
+  }
+
+  .hidden {
+    display: none;
+  }
+</style>
+</head>
+
+<body>
+
+<!-- NAV BAR -->
+<div class="header-box">
+  <h1>Welcome to CyberHelp</h1>
+  <a href="index.html">Home</a>
+  <a href="about.html">About</a>
+  <a href="form.html">Contact Form</a>
+  <a href="game.html">Scam Game</a>
+</div>
+
+<!-- GAME -->
+<div class="container">
+  <h1>🛡️ Scam Awareness Game</h1>
+  <p>Spot the scam and learn the red flags</p>
+
+  <div id="game">
+
+    <div id="question" class="question"></div>
+
+    <button class="btn" onclick="answer(0)" id="btn0"></button>
+    <button class="btn" onclick="answer(1)" id="btn1"></button>
+    <button class="btn" onclick="answer(2)" id="btn2"></button>
+
+    <div class="score" id="score"></div>
+
+    <div id="feedback" class="feedback"></div>
+
+  </div>
+
+  <div id="result" class="hidden">
+    <h2>Game Over 🎉</h2>
+    <p id="finalScore"></p>
+    <button class="btn" onclick="restart()">Play Again</button>
+  </div>
+</div>
+
+<script>
+const questions = [
+  {
+    q: "Bank email says: 'Click link or account will be closed immediately.'",
+    a: ["Legit warning", "Phishing scam", "Friend message"],
+    correct: 1,
+    explain: "🚩 Urgency + fake threat + link = phishing scam."
+  },
+  {
+    q: "Free Robux website asks for your password.",
+    a: ["Enter it", "Ignore it", "Share it"],
+    correct: 1,
+    explain: "🚩 Free rewards + password request = scam trap."
+  },
+  {
+    q: "Friend asks for a verification code they sent you.",
+    a: ["Send it", "Ignore it", "Reply later"],
+    correct: 1,
+    explain: "🚩 Verification codes = account takeover attempt."
+  },
+  {
+    q: "Stranger says they love you quickly and need money.",
+    a: ["Romance scam", "Normal chat", "Game invite"],
+    correct: 0,
+    explain: "🚩 Fast love + money request = romance scam."
+  },
+  {
+    q: "Pop-up says your PC is locked and demands Bitcoin.",
+    a: ["Ransomware", "Update alert", "Virus scan"],
+    correct: 0,
+    explain: "🚩 Fake lock + crypto payment = ransomware scam."
+  }
+];
+
+let current = 0;
+let score = 0;
+
+function loadQuestion() {
+  if (current >= questions.length) {
+    endGame();
+    return;
+  }
+
+  let q = questions[current];
+
+  document.getElementById("question").innerText = q.q;
+
+  document.getElementById("btn0").innerText = q.a[0];
+  document.getElementById("btn1").innerText = q.a[1];
+  document.getElementById("btn2").innerText = q.a[2];
+
+  document.getElementById("score").innerText = "Score: " + score;
+
+  document.getElementById("feedback").style.display = "none";
+}
+
+function answer(i) {
+  let q = questions[current];
+  let fb = document.getElementById("feedback");
+
+  fb.style.display = "block";
+
+  if (i === q.correct) {
+    score++;
+    fb.className = "feedback correct";
+    fb.innerHTML = "✅ Correct!<br>" + q.explain;
+  } else {
+    fb.className = "feedback wrong";
+    fb.innerHTML = "❌ Not quite!<br>" + q.explain;
+  }
+
+  setTimeout(() => {
+    current++;
+    loadQuestion();
+  }, 1800);
+}
+
+function endGame() {
+  document.getElementById("game").classList.add("hidden");
+  document.getElementById("result").classList.remove("hidden");
+  document.getElementById("finalScore").innerText =
+    "You scored " + score + " out of " + questions.length;
+}
+
+function restart() {
+  current = 0;
+  score = 0;
+  document.getElementById("game").classList.remove("hidden");
+  document.getElementById("result").classList.add("hidden");
+  loadQuestion();
+}
+
+loadQuestion();
+</script>
+
+</body>
+</html>
