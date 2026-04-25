@@ -36,7 +36,8 @@
     background-color: #5a4abc;
   }
 
-  .section {
+  /* UPDATED: now used everywhere */
+  .scam-card {
     margin: 30px auto;
     width: 80%;
     max-width: 600px;
@@ -54,42 +55,31 @@
     color: white;
   }
 
-  /* ===== UPDATED SCAM CARD ONLY ===== */
-  .scam-card {
-    background: white;
-    border-radius: 16px;
-    padding: 20px;
-    margin: 20px auto;
-    width: 80%;
-    max-width: 650px;
-    box-shadow: 0 10px 25px rgba(0,0,0,0.2);
+  /* ===== SCAM CARD STYLE ===== */
+  .scam-card > .textbox,
+  .scam-card > img,
+  .scam-card > textarea,
+  .scam-card > ol,
+  .scam-card > ul {
     transition: transform 0.35s ease, box-shadow 0.35s ease;
-    will-change: transform;
   }
 
-  .scam-card:hover {
-    transform: scale(1.03) translateY(-6px);
-    box-shadow: 0 18px 45px rgba(0,0,0,0.35);
+  .scam-card:hover .textbox {
+    transform: scale(1.02);
   }
 
-  /* Image styling + zoom effect (unchanged) */
   .scam-card img {
     width: 100%;
-    max-width: 100%;
     border-radius: 12px;
-    transition: transform 0.4s ease;
     display: block;
-    margin: 10px auto;
+    margin: 10px 0;
+    transition: transform 0.35s ease;
   }
 
   .scam-card img:hover {
     transform: scale(1.05);
   }
 
-  .scam-card h2 {
-    text-align: center;
-    color: #6a5acd;
-  }
 </style>
 </head>
 
@@ -105,9 +95,10 @@
 </div>
 
 <!-- PHISHING -->
-<div class="section">
+<div class="scam-card">
   <h2>Phishing Scam</h2>
-  <img src="phishing_smallslider-2019.jpg" alt="Fake check example" width="50" height="50">
+
+  <img src="phishing_smallslider-2019.jpg">
 
   <div class="textbox">
     <textarea rows="8" readonly>
@@ -128,10 +119,10 @@ to verify your account or it will be suspended.
 </div>
 
 <!-- FAKE CHECK -->
-<div class="section">
+<div class="scam-card">
   <h2>Fake Check Scam</h2>
 
-  <img src="elements_of_a_fake_check_-_bbb.jpg" alt="Fake check example" width="50" height="50">
+  <img src="elements_of_a_fake_check_-_bbb.jpg">
 
   <div class="textbox">
     <p>1. Feel the edges – fake checks may have rough or perforated edges.</p>
@@ -141,9 +132,10 @@ to verify your account or it will be suspended.
 </div>
 
 <!-- EMERGENCY -->
-<div class="section">
+<div class="scam-card">
   <h2>Emergency Scam</h2>
-  <img src="family_scams_image-jpeg8b260afdc8234e03abb2ccf4d489bdfd.jpeg" alt="Fake check example" width="50" height="50">
+
+  <img src="family_scams_image-jpeg8b260afdc8234e03abb2ccf4d489bdfd.jpeg">
 
   <div class="textbox">
     <p>A scammer pretends to be a stranded friend or family member and urgently asks for money.</p>
@@ -156,9 +148,10 @@ to verify your account or it will be suspended.
 </div>
 
 <!-- ROMANCE -->
-<div class="section">
+<div class="scam-card">
   <h2>Romance Scam</h2>
-  <img src="Romance-Scam-icon.jpg" alt="Fake check example" width="50" height="50">
+
+  <img src="Romance-Scam-icon.jpg">
 
   <div class="textbox">
     <textarea rows="6" readonly>
@@ -175,64 +168,65 @@ I feel such a deep connection already."
 </div>
 
 <!-- RANSOMWARE -->
-<div class="section">
+<div class="scam-card">
   <h2>Ransomware Scam</h2>
-   <img src="Why-You-Need-to-Be-Concerned-About-Both-Phishing-and-Ransomware_400.jpg" alt="Fake check example" width="50" height="50">
+
+  <img src="Why-You-Need-to-Be-Concerned-About-Both-Phishing-and-Ransomware_400.jpg">
 
   <div class="textbox">
     <p>Your files are “encrypted” and the attacker demands Bitcoin payment.</p>
     <ul>
       <li>Poor spelling and grammar.</li>
-      <li>Demands for cryptocurrency payment.</li>
-      <li>Threats of permanent data loss if you don’t pay quickly.</li>
+      <li>Cryptocurrency demands.</li>
+      <li>Threats of permanent data loss.</li>
     </ul>
   </div>
 </div>
 
 <!-- SOCIAL MEDIA -->
-<div class="section">
+<div class="scam-card">
   <h2>Social Media Account Hacking Scam</h2>
-  <img src="Social-Media-Scams.png" alt="Fake check example" width="50" height="50">
+
+  <img src="Social-Media-Scams.png">
 
   <div class="textbox">
-    <p>Scammers target Snapchat, Instagram, and TikTok by stealing login information.</p>
-
+    <p>Scammers target Snapchat, Instagram, and TikTok by stealing login info.</p>
     <ol>
-      <li>“Is this you in this video?” links.</li>
-      <li>Fake login pages that steal passwords.</li>
-      <li>Threats that your account will be deleted.</li>
+      <li>Fake “Is this you?” links.</li>
+      <li>Fake login pages.</li>
+      <li>Account deletion threats.</li>
     </ol>
   </div>
 </div>
 
 <!-- GAMING -->
-<div class="section">
+<div class="scam-card">
   <h2>Gaming Scam (Robux, Skins, Free Items)</h2>
-  <img src="images.jpeg" alt="Fake check example" width="50" height="50">
+
+  <img src="images.jpeg">
 
   <div class="textbox">
-    <p>Scammers target gamers in Roblox, Fortnite, and Discord with fake offers.</p>
-
+    <p>Scammers target Roblox, Fortnite, and Discord users.</p>
     <ol>
-      <li>Fake “free Robux” or “free V-Bucks” sites.</li>
-      <li>Fake trading bots or middleman scams.</li>
-      <li>Requests to verify accounts on fake websites.</li>
+      <li>Fake free Robux/V-Bucks.</li>
+      <li>Fake trading bots.</li>
+      <li>Fake verification sites.</li>
     </ol>
   </div>
 </div>
 
-<!-- VERIFICATION CODE -->
-<div class="section">
+<!-- VERIFICATION -->
+<div class="scam-card">
   <h2>Verification Code Scam</h2>
-  <img src="working test.jpeg" alt="Fake check example" width="50" height="50">
+
+  <img src="working test.jpeg">
 
   <div class="textbox">
-    <p>Scammers trick users into giving away login codes to take over accounts.</p>
-
+    <p>Scammers steal login codes to hijack accounts.</p>
     <ol>
-      <li>“I sent you a code by mistake—can you send it back?”</li>
-      <li>Fake friend accounts asking for verification codes.</li>
-      <li>Used to hijack Snapchat, Instagram, and email accounts.</li>
+      <li>“I sent you a code by mistake.”</li>
+      <li>Fake friend accounts.</li>
+      <li>Account takeover attempts.</li>
     </ol>
   </div>
 </div>
