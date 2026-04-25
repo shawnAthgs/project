@@ -53,6 +53,43 @@
     text-align: center;
     color: white;
   }
+
+  /* ===== UPDATED SCAM CARD ONLY ===== */
+  .scam-card {
+    background: white;
+    border-radius: 16px;
+    padding: 20px;
+    margin: 20px auto;
+    width: 80%;
+    max-width: 650px;
+    box-shadow: 0 10px 25px rgba(0,0,0,0.2);
+    transition: transform 0.35s ease, box-shadow 0.35s ease;
+    will-change: transform;
+  }
+
+  .scam-card:hover {
+    transform: scale(1.03) translateY(-6px);
+    box-shadow: 0 18px 45px rgba(0,0,0,0.35);
+  }
+
+  /* Image styling + zoom effect (unchanged) */
+  .scam-card img {
+    width: 100%;
+    max-width: 100%;
+    border-radius: 12px;
+    transition: transform 0.4s ease;
+    display: block;
+    margin: 10px auto;
+  }
+
+  .scam-card img:hover {
+    transform: scale(1.05);
+  }
+
+  .scam-card h2 {
+    text-align: center;
+    color: #6a5acd;
+  }
 </style>
 </head>
 
@@ -92,7 +129,9 @@ to verify your account or it will be suspended.
 <!-- FAKE CHECK -->
 <div class="section">
   <h2>Fake Check Scam</h2>
+
   <img src="elements_of_a_fake_check_-_bbb.jpg" alt="Fake check example" width="50" height="50">
+
   <div class="textbox">
     <p>1. Feel the edges – fake checks may have rough or perforated edges.</p>
     <p>2. Verify the bank address and check number.</p>
