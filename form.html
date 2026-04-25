@@ -1,1 +1,165 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>CyberHelp Survey</title>
 
+<style>
+  body {
+    margin: 0;
+    font-family: Arial, sans-serif;
+    background: linear-gradient(135deg, mediumpurple, rebeccapurple);
+  }
+
+  .header-box {
+    background-color: #6a5acd;
+    padding: 15px;
+    text-align: center;
+  }
+
+  .header-box h1 {
+    color: white;
+    margin: 0;
+  }
+
+  .header-box a {
+    color: white;
+    margin: 0 10px;
+    text-decoration: none;
+    padding: 8px 12px;
+    border-radius: 6px;
+  }
+
+  .header-box a:hover {
+    background-color: #5a4abc;
+  }
+
+  form {
+    background: white;
+    padding: 20px;
+    border-radius: 12px;
+    width: 400px;
+    margin: 30px auto;
+    box-shadow: 0 8px 20px rgba(0,0,0,0.2);
+  }
+
+  label {
+    display: block;
+    margin-top: 10px;
+    font-weight: bold;
+  }
+
+  select, textarea {
+    width: 100%;
+    margin-top: 5px;
+    padding: 10px;
+    border-radius: 8px;
+    border: 1px solid #ccc;
+  }
+
+  button {
+    width: 100%;
+    margin-top: 15px;
+    padding: 10px;
+    background-color: #6a5acd;
+    color: white;
+    border: none;
+    border-radius: 8px;
+    font-weight: bold;
+    cursor: pointer;
+  }
+
+  button:hover {
+    background-color: #5a4abc;
+  }
+
+  h2 {
+    text-align: center;
+    color: white;
+  }
+</style>
+</head>
+
+<body>
+
+<div class="header-box">
+  <h1>CyberHelp Survey</h1>
+  <a href="index.html">Home</a>
+  <a href="about.html">About</a>
+  <a href="form.html">Survey</a>
+</div>
+
+<h2>Have You Experienced These Scams?</h2>
+
+<form id="surveyForm">
+
+  <label>Phishing Scam</label>
+  <select name="phishing">
+    <option value="no">No</option>
+    <option value="yes">Yes</option>
+  </select>
+
+  <label>Fake Check Scam</label>
+  <select name="fakecheck">
+    <option value="no">No</option>
+    <option value="yes">Yes</option>
+  </select>
+
+  <label>Emergency Scam</label>
+  <select name="emergency">
+    <option value="no">No</option>
+    <option value="yes">Yes</option>
+  </select>
+
+  <label>Romance Scam</label>
+  <select name="romance">
+    <option value="no">No</option>
+    <option value="yes">Yes</option>
+  </select>
+
+  <label>Ransomware Scam</label>
+  <select name="ransomware">
+    <option value="no">No</option>
+    <option value="yes">Yes</option>
+  </select>
+
+  <label>How often do you use the internet?</label>
+  <select name="internetUse">
+    <option>Rarely</option>
+    <option>Sometimes</option>
+    <option>Daily</option>
+    <option>Almost constantly</option>
+  </select>
+
+  <label>Additional Comments</label>
+  <textarea name="comments" rows="5" placeholder="Share your experience..."></textarea>
+
+  <button type="submit">Submit Survey</button>
+
+</form>
+<script>
+document.getElementById("surveyForm").addEventListener("submit", async function(e) {
+  e.preventDefault();
+
+  const data = {
+    phishing: this.phishing.value,
+    fakecheck: this.fakecheck.value,
+    emergency: this.emergency.value,
+    romance: this.romance.value,
+    ransomware: this.ransomware.value,
+    internetUse: this.internetUse.value,
+    comments: this.comments.value
+  };
+
+  await fetch("https://script.google.com/macros/s/AKfycbyhZlNtHp2lga5We9knq4l3qXkDCsCec9st3_wG-HDasCEA8pHk3e5perL_2ZnGMSg6/exec", {
+    method: "POST",
+    body: JSON.stringify(data)
+  });
+
+  alert("Survey submitted successfully!");
+  this.reset();
+});
+</script>
+</body>
+</html>
