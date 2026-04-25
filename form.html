@@ -35,6 +35,11 @@
     background-color: #5a4abc;
   }
 
+  h2 {
+    text-align: center;
+    color: white;
+  }
+
   form {
     background: white;
     padding: 20px;
@@ -73,11 +78,6 @@
   button:hover {
     background-color: #5a4abc;
   }
-
-  h2 {
-    text-align: center;
-    color: white;
-  }
 </style>
 </head>
 
@@ -85,6 +85,7 @@
 
 <div class="header-box">
   <h1>CyberHelp Survey</h1>
+
   <a href="index.html">Home</a>
   <a href="about.html">About</a>
   <a href="form.html">Survey</a>
@@ -94,6 +95,7 @@
 
 <form id="surveyForm">
 
+  <!-- OLD SCAMS -->
   <label>Phishing Scam</label>
   <select name="phishing">
     <option value="no">No</option>
@@ -124,6 +126,26 @@
     <option value="yes">Yes</option>
   </select>
 
+  <!-- NEW TEEN SCAMS -->
+  <label>Social Media Account Hacking Scam</label>
+  <select name="socialmedia">
+    <option value="no">No</option>
+    <option value="yes">Yes</option>
+  </select>
+
+  <label>Gaming Scam (Robux / Skins / Free Items)</label>
+  <select name="gaming">
+    <option value="no">No</option>
+    <option value="yes">Yes</option>
+  </select>
+
+  <label>Verification Code Scam</label>
+  <select name="verification">
+    <option value="no">No</option>
+    <option value="yes">Yes</option>
+  </select>
+
+  <!-- EXTRA INFO -->
   <label>How often do you use the internet?</label>
   <select name="internetUse">
     <option>Rarely</option>
@@ -138,6 +160,7 @@
   <button type="submit">Submit Survey</button>
 
 </form>
+
 <script>
 document.getElementById("surveyForm").addEventListener("submit", async function(e) {
   e.preventDefault();
@@ -148,12 +171,16 @@ document.getElementById("surveyForm").addEventListener("submit", async function(
     emergency: this.emergency.value,
     romance: this.romance.value,
     ransomware: this.ransomware.value,
+    socialmedia: this.socialmedia.value,
+    gaming: this.gaming.value,
+    verification: this.verification.value,
     internetUse: this.internetUse.value,
     comments: this.comments.value
   };
 
   await fetch("https://script.google.com/macros/s/AKfycbyhZlNtHp2lga5We9knq4l3qXkDCsCec9st3_wG-HDasCEA8pHk3e5perL_2ZnGMSg6/exec", {
     method: "POST",
+    mode: "no-cors",
     body: JSON.stringify(data)
   });
 
@@ -161,5 +188,6 @@ document.getElementById("surveyForm").addEventListener("submit", async function(
   this.reset();
 });
 </script>
+
 </body>
 </html>
