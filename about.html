@@ -1,153 +1,457 @@
+
 <!DOCTYPE html>
-<html>
+<html lang="en">
 <head>
-<meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>About - CyberHelp</title>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="description" content="Learn about CyberHelp's mission to help teens recognize and avoid online scams.">
+  <title>About | CyberHelp</title>
 
-<style>
-  body {
-    margin: 0;
-    font-family: Arial, sans-serif;
-    background: linear-gradient(135deg, mediumpurple, rebeccapurple);
-    color: #222;
-  }
+  <style>
+    :root {
+      --background: #0b1020;
+      --surface: #151b31;
+      --surface-light: #202743;
+      --purple: #8b5cf6;
+      --lavender: #c4b5fd;
+      --text: #f5f3ff;
+      --muted: #c2c7dc;
+      --border: rgba(196, 181, 253, 0.2);
+    }
 
-  .header-box {
-    background-color: #6a5acd;
-    padding: 15px;
-    text-align: center;
-  }
+    * {
+      box-sizing: border-box;
+    }
 
-  .header-box h1 {
-    color: white;
-    margin: 0;
-  }
+    body {
+      margin: 0;
+      font-family: Arial, Helvetica, sans-serif;
+      background:
+        radial-gradient(ellipse at top left, #292052 0, transparent 45%),
+        var(--background);
+      color: var(--text);
+      line-height: 1.7;
+    }
 
-  .header-box a {
-    color: white;
-    margin: 0 10px;
-    text-decoration: none;
-    padding: 8px 12px;
-    border-radius: 6px;
-  }
+    a {
+      color: var(--lavender);
+    }
 
-  .header-box a:hover {
-    background-color: #5a4abc;
-  }
+    .site-header {
+      padding: 20px 6%;
+      border-bottom: 1px solid var(--border);
+      background: rgba(11, 16, 32, 0.9);
+    }
 
-  h2 {
-    text-align: center;
-    color: white;
-  }
+    .nav-container {
+      max-width: 1150px;
+      margin: auto;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      gap: 20px;
+      flex-wrap: wrap;
+    }
 
-  .section {
-    margin: 30px auto;
-    width: 80%;
-    max-width: 800px;
-  }
+    .logo {
+      color: white;
+      font-size: 1.65rem;
+      font-weight: 800;
+      text-decoration: none;
+    }
 
-  .card {
-    background: white;
-    padding: 20px;
-    border-radius: 12px;
-    box-shadow: 0 4px 12px rgba(0,0,0,0.2);
-    margin-bottom: 20px;
-  }
-</style>
+    .logo span {
+      color: var(--lavender);
+    }
+
+    nav {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 10px;
+    }
+
+    nav a {
+      color: var(--text);
+      text-decoration: none;
+      padding: 9px 14px;
+      border-radius: 9px;
+      transition: background 0.2s, transform 0.2s;
+    }
+
+    nav a:hover,
+    nav a[aria-current="page"] {
+      background: var(--surface-light);
+      color: white;
+    }
+
+    .hero {
+      max-width: 950px;
+      margin: auto;
+      padding: 70px 24px 45px;
+      text-align: center;
+    }
+
+    .eyebrow {
+      display: inline-block;
+      padding: 5px 13px;
+      border: 1px solid var(--border);
+      border-radius: 30px;
+      color: var(--lavender);
+      background: rgba(139, 92, 246, 0.12);
+      font-size: 0.9rem;
+      font-weight: bold;
+    }
+
+    .hero h1 {
+      margin: 18px 0 12px;
+      font-size: clamp(2.3rem, 6vw, 3.8rem);
+      line-height: 1.2;
+    }
+
+    .gradient-text {
+      background: linear-gradient(90deg, #c4b5fd, #8b5cf6);
+      -webkit-background-clip: text;
+      background-clip: text;
+      color: transparent;
+    }
+
+    .hero p {
+      max-width: 720px;
+      margin: auto;
+      color: var(--muted);
+      font-size: 1.1rem;
+    }
+
+    main {
+      max-width: 1050px;
+      margin: auto;
+      padding: 0 24px 65px;
+    }
+
+    .section-heading {
+      text-align: center;
+      margin: 20px 0 28px;
+    }
+
+    .section-heading h2 {
+      font-size: clamp(1.6rem, 4vw, 2.3rem);
+      margin-bottom: 8px;
+    }
+
+    .section-heading p {
+      color: var(--muted);
+      margin-top: 0;
+    }
+
+    .card-grid {
+      display: grid;
+      grid-template-columns: repeat(2, minmax(0, 1fr));
+      gap: 22px;
+    }
+
+    .card {
+      min-width: 0;
+      padding: 25px;
+      background: linear-gradient(145deg, var(--surface), #11172a);
+      border: 1px solid var(--border);
+      border-radius: 18px;
+      box-shadow: 0 10px 30px rgba(0, 0, 0, 0.15);
+      transition: transform 0.25s, border-color 0.25s,
+                  box-shadow 0.25s;
+    }
+
+    .card:hover {
+      transform: translateY(-5px);
+      border-color: rgba(196, 181, 253, 0.6);
+      box-shadow: 0 16px 35px rgba(0, 0, 0, 0.25);
+    }
+
+    .card h3 {
+      margin: 0 0 12px;
+      color: var(--lavender);
+      font-size: 1.25rem;
+    }
+
+    .card p,
+    .card li {
+      color: var(--muted);
+    }
+
+    .card ul {
+      padding-left: 22px;
+      margin-bottom: 0;
+    }
+
+    .card li {
+      margin-bottom: 8px;
+    }
+
+    .mission-card {
+      grid-column: 1 / -1;
+      background: linear-gradient(
+        120deg,
+        rgba(139, 92, 246, 0.2),
+        var(--surface)
+      );
+    }
+
+    .sources a {
+      overflow-wrap: anywhere;
+      text-decoration: none;
+    }
+
+    .sources a:hover {
+      text-decoration: underline;
+    }
+
+    .cta {
+      margin-top: 30px;
+      padding: 30px;
+      border: 1px solid var(--border);
+      border-radius: 18px;
+      background: linear-gradient(
+        120deg,
+        rgba(139, 92, 246, 0.22),
+        rgba(32, 39, 67, 0.8)
+      );
+      text-align: center;
+    }
+
+    .cta h2 {
+      margin-top: 0;
+    }
+
+    .cta p {
+      color: var(--muted);
+    }
+
+    .cta-button {
+      display: inline-block;
+      margin-top: 12px;
+      padding: 12px 20px;
+      border-radius: 10px;
+      background: linear-gradient(135deg, #8b5cf6, #6d28d9);
+      color: white;
+      text-decoration: none;
+      font-weight: bold;
+      transition: transform 0.2s, box-shadow 0.2s;
+    }
+
+    .cta-button:hover {
+      transform: translateY(-3px);
+      box-shadow: 0 8px 25px rgba(139, 92, 246, 0.3);
+    }
+
+    footer {
+      padding: 25px 20px;
+      border-top: 1px solid var(--border);
+      text-align: center;
+      color: var(--muted);
+    }
+
+    footer a {
+      display: inline-block;
+      margin: 0 8px;
+      text-decoration: none;
+    }
+
+    footer a:hover {
+      text-decoration: underline;
+    }
+
+    @media (max-width: 700px) {
+      .nav-container {
+        justify-content: center;
+      }
+
+      nav {
+        justify-content: center;
+      }
+
+      .hero {
+        padding-top: 48px;
+      }
+
+      main {
+        padding-right: 16px;
+        padding-left: 16px;
+      }
+
+      .card-grid {
+        grid-template-columns: 1fr;
+      }
+
+      .mission-card {
+        grid-column: auto;
+      }
+
+      .card {
+        padding: 21px;
+      }
+    }
+
+    @media (prefers-reduced-motion: reduce) {
+      *,
+      *::before,
+      *::after {
+        scroll-behavior: auto !important;
+        transition-duration: 0.01ms !important;
+      }
+    }
+  </style>
 </head>
 
 <body>
+  <header class="site-header">
+    <div class="nav-container">
+      <a class="logo" href="index.html">Cyber<span>Help</span></a>
 
-<!-- HEADER -->
-<div class="header-box">
-  <h1>About CyberHelp</h1>
+      <nav aria-label="Main navigation">
+        <a href="index.html">Home</a>
+        <a href="about.html" aria-current="page">About</a>
+        <a href="form.html">Contact Form</a>
+        <a href="resources.html">Resources</a>
+      </nav>
+    </div>
+  </header>
 
-  <a href="index.html">Home</a>
-  <a href="about.html">About</a>
-  <a href="form.html">Survey</a>
-</div>
-
-<h2>Understanding Online Scams</h2>
-
-<div class="section">
-
-  <!-- MISSION -->
-  <div class="card">
-    <h3>🎯 Our Mission</h3>
+  <section class="hero">
+    <span class="eyebrow">Our mission</span>
+    <h1>About <span class="gradient-text">CyberHelp</span></h1>
     <p>
-      CyberHelp was created to educate people—especially teens—about common online scams.
-      Many scams today target social media users, gamers, and students.
-      This site helps people recognize and avoid them.
+      Helping teens recognize online scams, protect their personal
+      information, and make safer decisions in the digital world.
     </p>
-  </div>
+  </section>
 
-  <!-- STATS -->
-  <div class="card">
-    <h3>📊 Cybercrime Statistics</h3>
-    <ul>
-      <li>Millions of people are affected by online scams every year worldwide.</li>
-      <li>Phishing is one of the most common types of cybercrime.</li>
-      <li>Teens are increasingly targeted through social media and gaming platforms.</li>
-      <li>Many victims never report scams, making the problem larger than recorded.</li>
-    </ul>
-  </div>
+  <main>
+    <div class="section-heading">
+      <h2>Understanding Online Scams</h2>
+      <p>Learn why online safety matters and how awareness makes a difference.</p>
+    </div>
 
-  <!-- TEEN TARGETING -->
-  <div class="card">
-    <h3>📱 Why Teens Are Targeted</h3>
-    <p>
-      Teens spend a lot of time online using apps like Snapchat, Instagram, TikTok, Roblox, and Discord.
-      Scammers take advantage of trust, curiosity, and in-game rewards to trick users.
-    </p>
-  </div>
+    <div class="card-grid">
 
-  <!-- WHY THIS MATTERS -->
-  <div class="card">
-    <h3>⚠️ Why This Matters</h3>
+      <section class="card mission-card">
+        <h3>🎯 Our Mission</h3>
+        <p>
+          CyberHelp was created to educate people—especially teens—about
+          common online scams. Many scams target social media users, gamers,
+          and students. This site helps people recognize warning signs,
+          avoid suspicious offers, and find support when something goes wrong.
+        </p>
+      </section>
 
-    <p>
-      Online scams are becoming more advanced and harder to recognize. Many people lose access to their accounts, personal data, or even money because they didn’t realize they were being tricked.
-    </p>
+      <section class="card">
+        <h3>📊 Cybercrime Statistics</h3>
+        <p>
+          Online fraud and cybercrime affect people around the world.
+          Official reports help show the scale of the problem, although
+          reported cases do not represent every incident.
+        </p>
+        <ul>
+          <li>Phishing is a common way attackers steal account information.</li>
+          <li>Social media and gaming accounts can be targets for fraud.</li>
+          <li>Some victims never report scams, so the full impact is difficult to measure.</li>
+        </ul>
+        <p>
+          Explore current reports from the
+          <a href="https://www.ic3.gov/" target="_blank" rel="noopener noreferrer">FBI's IC3</a>
+          and the
+          <a href="https://www.ftc.gov/news-events/data-visualizations" target="_blank" rel="noopener noreferrer">FTC's data visualizations</a>.
+        </p>
+      </section>
 
-    <p>
-      Teens are especially at risk because scammers often use social media, gaming platforms, and fake rewards to gain trust quickly.
-    </p>
+      <section class="card">
+        <h3>📱 Why Teens Are Targeted</h3>
+        <p>
+          Teens use social media, messaging apps, online games, and digital
+          marketplaces. Scammers may exploit curiosity, trust, fear of missing
+          out, or the excitement of getting free rewards.
+        </p>
+        <ul>
+          <li>Fake giveaways and free in-game currency.</li>
+          <li>Messages pretending to come from friends.</li>
+          <li>Fake login pages and requests for verification codes.</li>
+        </ul>
+      </section>
 
-    <p>
-      Understanding how these scams work helps you recognize warning signs early and protect yourself before any damage is done.
-    </p>
+      <section class="card">
+        <h3>⚠️ Why This Matters</h3>
+        <p>
+          Scams can lead to stolen accounts, exposed personal information,
+          financial loss, or emotional stress. Learning the warning signs
+          helps you pause and check before responding.
+        </p>
+        <ul>
+          <li>Protects your personal information and accounts.</li>
+          <li>Helps reduce the risk of financial loss and identity theft.</li>
+          <li>Builds awareness of online manipulation tactics.</li>
+        </ul>
+      </section>
 
-    <ul>
-      <li>Protects your personal information and accounts</li>
-      <li>Helps you avoid financial loss or identity theft</li>
-      <li>Makes you more aware of online manipulation tactics</li>
-    </ul>
-  </div>
+      <section class="card">
+        <h3>🛡️ How to Stay Safe</h3>
+        <ul>
+          <li>Never share passwords or one-time login codes.</li>
+          <li>Avoid suspicious links and unexpected attachments.</li>
+          <li>Enable two-factor authentication when available.</li>
+          <li>Check website addresses before signing in.</li>
+          <li>Verify unusual requests through another trusted channel.</li>
+          <li>Ask a trusted adult for help if a message feels suspicious.</li>
+        </ul>
+      </section>
 
-  <!-- SAFETY TIPS -->
-  <div class="card">
-    <h3>🛡️ How to Stay Safe</h3>
-    <ul>
-      <li>Never share login codes or passwords.</li>
-      <li>Don’t click suspicious links from unknown users.</li>
-      <li>Enable two-factor authentication (2FA).</li>
-      <li>Check URLs carefully before logging in.</li>
-    </ul>
-  </div>
+      <section class="card sources">
+        <h3>📚 Trusted Sources</h3>
+        <p>
+          CyberHelp encourages readers to learn from established
+          cybersecurity and consumer-protection organizations.
+        </p>
+        <ul>
+          <li>
+            <a href="https://www.ftc.gov/" target="_blank" rel="noopener noreferrer">
+              Federal Trade Commission (FTC)
+            </a>
+          </li>
+          <li>
+            <a href="https://www.ic3.gov/" target="_blank" rel="noopener noreferrer">
+              FBI Internet Crime Complaint Center (IC3)
+            </a>
+          </li>
+          <li>
+            <a href="https://www.verizon.com/business/resources/reports/dbir/" target="_blank" rel="noopener noreferrer">
+              Verizon Data Breach Investigations Report
+            </a>
+          </li>
+          <li>
+            <a href="https://www.cisa.gov/secure-our-world" target="_blank" rel="noopener noreferrer">
+              CISA: Secure Our World
+            </a>
+          </li>
+        </ul>
+      </section>
 
-  <!-- SOURCES -->
-  <div class="card">
-    <h3>📚 Sources</h3>
-    <ul>
-      <li>Federal Trade Commission (FTC) - Consumer Fraud Reports</li>
-      <li>FBI Internet Crime Complaint Center (IC3)</li>
-      <li>Verizon Data Breach Investigations Report</li>
-    </ul>
-  </div>
+    </div>
 
-</div>
+    <section class="cta">
+      <h2>Ready to learn more?</h2>
+      <p>
+        Explore scam examples, find trusted help, or share your experience
+        to help others become more aware.
+      </p>
+      <a class="cta-button" href="resources.html">Explore Resources</a>
+      <a class="cta-button" href="form.html">Visit the Survey</a>
+    </section>
+  </main>
 
+  <footer>
+    <p>CyberHelp — Learn to spot scams and stay safer online.</p>
+    <a href="index.html">Home</a>
+    <a href="form.html">Contact Form</a>
+    <a href="resources.html">Resources</a>
+  </footer>
 </body>
 </html>
+
 
