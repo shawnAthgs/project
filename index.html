@@ -1,225 +1,214 @@
+
 <!DOCTYPE html>
-<html>
+<html lang="en">
 <head>
-<meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>CyberHelp - Scam Awareness</title>
-
-<style>
-  body {
-    margin: 0;
-    font-family: Arial, sans-serif;
-    background: linear-gradient(135deg, mediumpurple, rebeccapurple);
-    color: #222;
-  }
-
-  .header-box {
-    background-color: #6a5acd;
-    padding: 15px;
-    text-align: center;
-  }
-
-  .header-box h1 {
-    color: white;
-    margin: 0;
-  }
-
-  .header-box a {
-    color: white;
-    margin: 0 10px;
-    text-decoration: none;
-    padding: 8px 12px;
-    border-radius: 6px;
-  }
-
-  .header-box a:hover {
-    background-color: #5a4abc;
-  }
-
-  h2 {
-    text-align: center;
-    color: white;
-  }
-
-  /* ===== SCAM CARD ===== */
-  .scam-card {
-    background: white;
-    border-radius: 16px;
-    padding: 20px;
-    margin: 30px auto;
-    width: 80%;
-    max-width: 650px;
-    box-shadow: 0 10px 25px rgba(0,0,0,0.2);
-    transition: transform 0.35s ease, box-shadow 0.35s ease;
-    overflow: hidden;
-  }
-
-  .scam-card:hover {
-    transform: scale(1.03) translateY(-6px);
-    box-shadow: 0 18px 45px rgba(0,0,0,0.35);
-  }
-
-  /* ===== IMAGE SIZE FIX ===== */
-  .scam-card img {
-    width: 100%;
-    height: 230px;
-    object-fit: cover;
-    border-radius: 12px;
-    margin: 10px 0;
-    display: block;
-    transition: transform 0.35s ease;
-  }
-
-  .scam-card img:hover {
-    transform: scale(1.05);
-  }
-
-  .textbox {
-    background: #f9f9f9;
-    padding: 15px;
-    border-radius: 10px;
-  }
-
-  textarea {
-    width: 100%;
-    border-radius: 8px;
-    padding: 10px;
-    border: 1px solid #ccc;
-  }
-</style>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="description" content="Learn how to recognize online scams and protect yourself with CyberHelp.">
+  <title>CyberHelp | Home</title>
+  <style>
+    :root {
+      --bg: #0b1020;
+      --surface: #151b31;
+      --surface2: #202743;
+      --purple: #8b5cf6;
+      --lavender: #c4b5fd;
+      --text: #f5f3ff;
+      --muted: #c2c7dc;
+      --border: rgba(196,181,253,.2);
+    }
+    * { box-sizing: border-box; }
+    html { scroll-behavior: smooth; }
+    body {
+      margin: 0;
+      font-family: Arial, sans-serif;
+      line-height: 1.7;
+      color: var(--text);
+      background: radial-gradient(ellipse at top left,#292052,transparent 45%),var(--bg);
+    }
+    a { color: var(--lavender); }
+    .header {
+      padding: 20px 6%;
+      background: rgba(11,16,32,.9);
+      border-bottom: 1px solid var(--border);
+    }
+    .nav {
+      max-width: 1150px;
+      margin: auto;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      gap: 18px;
+      flex-wrap: wrap;
+    }
+    .logo { color: white; font-size: 1.65rem; font-weight: 800; text-decoration: none; }
+    .logo span { color: var(--lavender); }
+    nav { display: flex; flex-wrap: wrap; gap: 8px; }
+    nav a { color: var(--text); text-decoration: none; padding: 8px 13px; border-radius: 9px; }
+    nav a:hover, nav a[aria-current="page"] { background: var(--surface2); }
+    .hero { max-width: 950px; margin: auto; padding: 70px 24px 45px; text-align: center; }
+    .eyebrow {
+      display: inline-block; padding: 5px 13px; border: 1px solid var(--border);
+      border-radius: 30px; color: var(--lavender); background: #8b5cf620;
+    }
+    h1 { font-size: clamp(2.3rem,6vw,4rem); line-height: 1.2; }
+    .gradient { background: linear-gradient(90deg,#c4b5fd,#8b5cf6); -webkit-background-clip: text; background-clip: text; color: transparent; }
+    .hero p { max-width: 700px; margin: auto; color: var(--muted); font-size: 1.1rem; }
+    .button {
+      display: inline-block; margin-top: 22px; padding: 12px 20px;
+      border-radius: 10px; background: linear-gradient(135deg,#8b5cf6,#6d28d9);
+      color: white; text-decoration: none; font-weight: bold;
+    }
+    .button:hover { transform: translateY(-2px); }
+    main { max-width: 1150px; padding: 0 24px 60px; margin: auto; }
+    .section-heading { text-align: center; margin: 20px 0 25px; }
+    .section-heading p { color: var(--muted); }
+    .grid { display: grid; grid-template-columns: repeat(auto-fit,minmax(min(100%,300px),1fr)); gap: 22px; }
+    .card {
+      min-width: 0; padding: 24px; border: 1px solid var(--border); border-radius: 18px;
+      background: linear-gradient(145deg,var(--surface),#11172a);
+      box-shadow: 0 10px 30px #0003; transition: transform .25s,border-color .25s;
+    }
+    .card:hover { transform: translateY(-5px); border-color: #c4b5fd99; }
+    .icon { font-size: 1.6rem; }
+    .card h2 { margin: 8px 0; font-size: 1.35rem; }
+    .card h3 { color: var(--lavender); font-size: 1rem; }
+    .card p,.card li { color: var(--muted); }
+    .card li { margin-bottom: 7px; }
+    .example {
+      padding: 14px; white-space: pre-wrap; overflow-wrap: anywhere;
+      border: 1px solid var(--border); border-radius: 10px;
+      background: #0c1224; color: #e2ddff;
+    }
+    .scam-image { display: block; width: 100%; max-width: 350px; height: auto; margin: 15px auto; border-radius: 12px; }
+    .banner {
+      margin-top: 30px; padding: 28px; text-align: center;
+      border: 1px solid var(--border); border-radius: 18px;
+      background: linear-gradient(120deg,#8b5cf638,var(--surface2));
+    }
+    .banner p { color: var(--muted); }
+    footer { text-align: center; padding: 25px 15px; border-top: 1px solid var(--border); color: var(--muted); }
+    footer a { margin: 0 8px; }
+    @media(max-width:600px) {
+      .nav { justify-content: center; }
+      nav { justify-content: center; }
+      .hero { padding-top: 45px; }
+      main { padding-left: 16px; padding-right: 16px; }
+    }
+    @media(prefers-reduced-motion:reduce) {
+      *,*::before,*::after { scroll-behavior: auto !important; transition: none !important; }
+    }
+  </style>
 </head>
-
 <body>
+  <header class="header">
+    <div class="nav">
+      <a class="logo" href="index.html">Cyber<span>Help</span></a>
+      <nav aria-label="Main navigation">
+        <a href="index.html" aria-current="page">Home</a>
+        <a href="about.html">About</a>
+        <a href="form.html">Contact Form</a>
+        <a href="resources.html">Resources</a>
+      </nav>
+    </div>
+  </header>
 
-<!-- HEADER -->
-<div class="header-box">
-  <h1>Welcome to CyberHelp</h1>
-  <a href="index.html">Home</a>
-  <a href="about.html">About</a>
-  <a href="form.html">Contact Form</a>
-   <a href="quiz.html">Scam Game</a>
-</div>
+  <section class="hero">
+    <span class="eyebrow">Stay alert. Stay protected.</span>
+    <h1>Recognize Scams.<br><span class="gradient">Protect Yourself.</span></h1>
+    <p>Learn how scammers try to steal money, personal information, and online accounts—and how to recognize the warning signs.</p>
+    <a class="button" href="#scams">Explore Common Scams ↓</a>
+  </section>
 
-<!-- PHISHING -->
-<div class="scam-card">
-  <h2>Phishing Scam</h2>
-  <img src="phishing_smallslider-2019.jpg">
+  <main>
+    <div class="section-heading" id="scams">
+      <h2>Know the Warning Signs</h2>
+      <p>Learn how common scams work and how to protect yourself.</p>
+    </div>
 
-  <div class="textbox">
-    <textarea rows="8" readonly>
-Subject: Urgent Account Verification Required
+    <div class="grid">
+      <article class="card">
+        <div class="icon">🎣</div>
+        <h2>Phishing Scam</h2>
+        <p>Fake emails or messages try to trick you into revealing passwords or personal information.</p>
+        <div class="example">Subject: Urgent Account Verification Required
 
 We detected suspicious activity on your bank account.
 Click the link and enter your account number and password
-to verify your account or it will be suspended.
-    </textarea>
-  </div>
-</div>
+to verify your account or it will be suspended.</div>
+        <h3>How to spot phishing</h3>
+        <ul>
+          <li>Check the sender's address.</li>
+          <li>Be careful with unexpected links.</li>
+          <li>Watch for urgent threats and pressure.</li>
+        </ul>
+      </article>
 
-<!-- FAKE CHECK -->
-<div class="scam-card">
-  <h2>Fake Check Scam</h2>
-  <img src="elements_of_a_fake_check_-_bbb.jpg">
+      <article class="card">
+        <div class="icon">🧾</div>
+        <h2>Fake Check Scam</h2>
+        <p>A scammer sends a fake check and asks you to send some money back. The check may later bounce, leaving you responsible.</p>
+        <img class="scam-image" src="cyber-help/elements_of_a_fake_check_-_bbb.jpg" alt="Example of elements to examine on a check" loading="lazy">
+        <h3>Warning signs</h3>
+        <ul>
+          <li>Someone sends you money and asks for some back.</li>
+          <li>You must pay fees or buy gift cards.</li>
+          <li>An unexpected job or prize involves depositing a check.</li>
+        </ul>
+      </article>
 
-  <div class="textbox">
-    <p>1. Feel the edges – fake checks may have rough edges.</p>
-    <p>2. Verify bank details carefully.</p>
-    <p>3. Watch for spelling mistakes.</p>
-  </div>
-</div>
+      <article class="card">
+        <div class="icon">🚨</div>
+        <h2>Emergency Scam</h2>
+        <p>A scammer pretends to be a friend or relative in trouble and urgently asks for money.</p>
+        <h3>How to protect yourself</h3>
+        <ul>
+          <li>Pause before responding.</li>
+          <li>Contact the person using a number you already know.</li>
+          <li>Verify the story with someone you trust.</li>
+          <li>Don't send money based only on an urgent message.</li>
+        </ul>
+      </article>
 
-<!-- EMERGENCY -->
-<div class="scam-card">
-  <h2>Emergency Scam</h2>
-  <img src="family_scams_image-jpeg8b260afdc8234e03abb2ccf4d489bdfd.jpeg">
+      <article class="card">
+        <div class="icon">💔</div>
+        <h2>Romance Scam</h2>
+        <p>A person builds an online relationship to gain trust, then asks for money or private information.</p>
+        <div class="example">"I've been searching for someone like you for so long. I feel such a deep connection already."</div>
+        <h3>Warning signs</h3>
+        <ul>
+          <li>Fast, intense declarations of love.</li>
+          <li>Excuses for never meeting or video calling.</li>
+          <li>Requests for money, gift cards, or cryptocurrency.</li>
+        </ul>
+      </article>
 
-  <div class="textbox">
-    <p>Scammer pretends to be a family member in danger.</p>
-    <ul>
-      <li>Urgent money request</li>
-      <li>Vague details</li>
-      <li>Unknown sender</li>
-    </ul>
-  </div>
-</div>
+      <article class="card">
+        <div class="icon">🔒</div>
+        <h2>Ransomware Scam</h2>
+        <p>Malicious software can lock or encrypt your files. Attackers may demand payment to restore access.</p>
+        <h3>How to stay safer</h3>
+        <ul>
+          <li>Keep your device and software updated.</li>
+          <li>Avoid suspicious downloads and attachments.</li>
+          <li>Back up important files.</li>
+          <li>Ask a trusted adult or IT professional for help if affected.</li>
+        </ul>
+      </article>
+    </div>
 
-<!-- ROMANCE -->
-<div class="scam-card">
-  <h2>Romance Scam</h2>
-  <img src="Romance-Scam-icon.jpg">
+    <section class="banner">
+      <h2>Not sure if it's a scam?</h2>
+      <p>Stop before clicking, paying, or sharing information. Verify the message through an official website or a trusted contact.</p>
+      <a class="button" href="resources.html">Explore Trusted Resources</a>
+    </section>
+  </main>
 
-  <div class="textbox">
-    <textarea rows="6" readonly>
-"I feel such a deep connection already."
-    </textarea>
-
-    <ul>
-      <li>Fast emotional attachment</li>
-      <li>Love bombing</li>
-      <li>Fake personal stories</li>
-    </ul>
-  </div>
-</div>
-
-<!-- RANSOMWARE -->
-<div class="scam-card">
-  <h2>Ransomware Scam</h2>
-  <img src="Why-You-Need-to-Be-Concerned-About-Both-Phishing-and-Ransomware_400.jpg">
-
-  <div class="textbox">
-    <p>Files locked and ransom demanded.</p>
-    <ul>
-      <li>Bitcoin payment demand</li>
-      <li>Threats to delete files</li>
-      <li>Fake encryption message</li>
-    </ul>
-  </div>
-</div>
-
-<!-- SOCIAL MEDIA -->
-<div class="scam-card">
-  <h2>Social Media Scam</h2>
-  <img src="Social-Media-Scams.png">
-
-  <div class="textbox">
-    <p>Hackers steal social media accounts.</p>
-    <ul>
-      <li>Fake login pages</li>
-      <li>“Is this you?” links</li>
-      <li>Password theft</li>
-    </ul>
-  </div>
-</div>
-
-<!-- GAMING -->
-<div class="scam-card">
-  <h2>Gaming Scam</h2>
-  <img src="images.jpeg">
-
-  <div class="textbox">
-    <p>Fake free items in games.</p>
-    <ul>
-      <li>Fake Robux/V-Bucks</li>
-      <li>Trading scams</li>
-      <li>Fake verification sites</li>
-    </ul>
-  </div>
-</div>
-
-<!-- VERIFICATION -->
-<div class="scam-card">
-  <h2>Verification Code Scam</h2>
-  <img src="working test.jpeg">
-
-  <div class="textbox">
-    <p>Scammers steal login codes.</p>
-    <ul>
-      <li>“Send me the code” trick</li>
-      <li>Fake friend accounts</li>
-      <li>Account takeover</li>
-    </ul>
-  </div>
-</div>
-
+  <footer>
+    <p>CyberHelp — Learn to spot scams and stay safer online.</p>
+    <a href="about.html">About</a>
+    <a href="form.html">Contact Form</a>
+    <a href="resources.html">Resources</a>
+  </footer>
 </body>
 </html>
